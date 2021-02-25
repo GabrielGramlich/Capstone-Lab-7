@@ -1,7 +1,3 @@
-'''
-Your program should handle errors. What type of errors do you anticipate? How will you deal with them?
-'''
-
 import requests
 import os
 from datetime import datetime
