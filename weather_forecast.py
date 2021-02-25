@@ -53,7 +53,12 @@ def parse_data(forecast_items):
 			 storing it somewhere, or performing some calculation off of it.'''
 			date = datetime.fromtimestamp(timestamp)
 			temp = round(forecast['main']['temp'],1)
-			items.append([date, temp])
+			# try:
+			description = forecast['weather'][0]['description']
+			# except TypeError:
+			# 	description = 'no description available'
+			windspeed = forecast['wind']['speed']
+			items.append([date, temp, description, windspeed])
 
 		return items
 	except KeyError:
@@ -67,7 +72,7 @@ def parse_data(forecast_items):
 
 def display_weather_information(items):
 	for item in items:
-		delayed_print(f'at {item[0]}, the temperature is {item[1]}F')
+		delayed_print(f'at {item[0]}, the temperature is {item[1]}F, weather is {item[2]}, and windspeed is {item[3]}mph')
 
 
 def delayed_print(string):
