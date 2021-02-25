@@ -1,6 +1,4 @@
 '''
-Your forecast should show the temperature and unit (your choice of F or C), weather description, and wind speed for every three hour interval, over the next 5 days.
-
 Your program should handle errors. What type of errors do you anticipate? How will you deal with them?
 '''
 
@@ -53,10 +51,7 @@ def parse_data(forecast_items):
 			 storing it somewhere, or performing some calculation off of it.'''
 			date = datetime.fromtimestamp(timestamp)
 			temp = round(forecast['main']['temp'],1)
-			# try:
 			description = forecast['weather'][0]['description']
-			# except TypeError:
-			# 	description = 'no description available'
 			windspeed = forecast['wind']['speed']
 			items.append([date, temp, description, windspeed])
 
